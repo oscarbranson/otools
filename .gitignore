@@ -1,4 +1,4 @@
 otools/__pycache__
 OTools.egg-info
-*.sublime*
 .ipynb_checkpoints
+*.vscode
