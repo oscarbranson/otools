@@ -1,3 +1,6 @@
+"""
+The periodic table, and all it's info! And functions for doing chemical things.
+"""
 import os
 import re
 import pickle
@@ -8,6 +11,8 @@ def elements():
     """
     Loads a DataFrame of all elements and isotopes.
 
+    Scraped from https://www.webelements.com/
+
     Returns
     -------
     pandas DataFrame with columns (element, atomic_number, isotope, atomic_weight, percent)
@@ -16,17 +21,29 @@ def elements():
 
 
 def periodic_table():
+    """
+    Loads dict containing all elements and associated metadata.
+
+    Scraped from https://www.webelements.com/
+
+    Returns
+    -------
+    dict
+    """
     with open(os.path.dirname(__file__) + '/periodic_table/periodic_table.pkl', 'rb') as f:
         return pickle.load(f)
 
 
 def calc_M(molecule):
     """
-    Returns molecular mass of molecule.
+    Returns molecular weight of molecule.
 
     Where molecule is in standard chemical notation,
     e.g. 'CO2', 'HCO3' or B(OH)4
 
+    Returns
+    -------
+    molecular_weight : float
     """
 
     # load periodic table

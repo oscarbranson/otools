@@ -1,3 +1,6 @@
+"""
+Misc plotting tools.
+"""
 import numpy as np
 
 def rangecalc(x, pad=0.05):
@@ -136,3 +139,25 @@ def intervals(x, y, f, p, xn=None, interval_type='confidence', conflevel=0.95):
         dy = q * Se * np.sqrt(1 + 1 / n + dx)
 
     return xn, ynp, ynp + dy, ynp - dy
+
+
+def unitpicker(a, llim=0.1):
+    """
+    Calculate chemical units of a, such that no values are less than llim.
+    """
+    if isinstance(a, (np.ndarray, list)):
+        a = np.nanmin(a)
+    
+    udict = {0: 'mol/mol',
+             1: 'mmol/mol',
+             2: '$\mu$mol/mol',
+             3: 'nmol/mol',
+             4: 'pmol/mol',
+             5: 'fmol/mol'}
+    a = abs(a)
+    n = 0
+    if a < llim:
+        while a < llim:
+            a *= 100
+            n += 1
+    return float(1000**n), udict[n]

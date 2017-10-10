@@ -1,6 +1,9 @@
+"""
+Convenience functions for handling uncertainties.
+"""
+
 import uncertainties as un
 import uncertainties.unumpy as up
-
 
 def err(x):
     return up.std_devs(x)
