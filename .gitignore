@@ -1,4 +1,5 @@
-otools/__pycache__
-OTools.egg-info
+__pycache__
+*.egg-info
 .ipynb_checkpoints
 *.vscode
+*.pyc
