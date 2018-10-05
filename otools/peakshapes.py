@@ -26,6 +26,32 @@ def gaussian(x, area, cen, fwhm):
     return (area / fwhm * np.sqrt(4 * np.log(2) / np.pi) *
             np.exp(-4 * np.log(2) * ((x - cen) / fwhm)**2))
 
+def gaussian_assym(x, area, cen, fwhm0, assym):
+    """
+    Gaussian Peak
+
+    Parameters
+    ----------
+    x : array-like
+    area : float
+        Peak area
+    cen : float
+        Peak centre
+    fwhm0 : float
+        Peak full-width at half maximum for symmetric peak
+    assym : float
+        expoential coefficient defining variations of FWHM with distance from cen.
+        0 = symmetric
+
+    Return
+    ------
+    y : array-like
+    """
+    fwhm_x = (2 * fwhm0) / (1 + np.exp(assym * (x - cen)))
+
+    return (area / fwhm_x * np.sqrt(4 * np.log(2) / np.pi) *
+            np.exp(-4 * np.log(2) * ((x - cen) / fwhm_x)**2))
+
 
 def lorentzian(x, area, cen, fwhm):
     """
