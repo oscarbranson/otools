@@ -1,0 +1,3 @@
+"""
+Tools for MCMC things.
+"""
