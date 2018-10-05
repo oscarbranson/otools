@@ -135,6 +135,7 @@ def seawater(Sal=35., unit='mol/kg'):
     -------
     Seawater composition in chosen units at specified salinity : dict
     """
+    
     sw = {"Cl": 0.54586,
           "SO4": 0.02824,
           "Br": 0.00084,
@@ -146,13 +147,14 @@ def seawater(Sal=35., unit='mol/kg'):
           "Sr": 0.00009,
           "B": 0.00042}
 
-    if Sal != 35:
-        for s in sw.keys():
-            sw[s] *= Sal / 35.
+    for s in sw.keys():
+        sw[s] *= Sal / 35.
     
     if unit == 'g/kg':
         for k, v in sw.items():
             sw[k] = calc_M(k) * v
+    
+    return sw
 
 if __name__ == '__main__':
     print()
