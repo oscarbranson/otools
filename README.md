@@ -10,6 +10,9 @@ Various functions for calculating (bio)mineral geochemistry from solution chemis
 ### Chemistry
 Functions for importing the periodic table of elements (scraped from webelements.com), and calculating the molecular mass of compounds.
 
+### phreeqc
+Functions for generating PHREEQC input strings, running them with phreeqpy and parsing the outputs.
+
 ### Peakshapes
 Various peak shapes. Largely redundant... but hey!
 
