@@ -130,7 +130,7 @@ def calc_cb(temp=25, pH=8.1, Na=0, Cl=0, K=0, B=0, Ca=0, DIC=0, Mg=0, SO4=0, dba
     """
     # path to phreeqc database files
     if database_path is None:
-        database_path = "/home/oscar/phreeqc/iphreeqc-3.3.9-11951/database/"
+        database_path = "/home/oscar/iphreeqc-3.5.0-14000/database/"
     # create input string
     inp = input_str(temp, pH, Na, Cl, K, B, Ca, DIC, Mg, SO4)
     # run phreeqc
