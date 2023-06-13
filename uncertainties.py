@@ -1,5 +1,5 @@
 import uncertainties
-from uncertainties import unumpy as unp
+import uncertainties.unumpy as unp
 
 def df_separate_uncertainties(df):
     """Create a copy of a dataframe where all columns containing uncertainties are split into two columns, one for the nominal value and one for the standard deviation.
