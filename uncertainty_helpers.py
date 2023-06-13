@@ -1,4 +1,5 @@
-import uncertainties
+import pandas as pd
+import uncertainty_helpers as un
 import uncertainties.unumpy as unp
 
 def df_separate_uncertainties(df):
@@ -17,7 +18,7 @@ def df_separate_uncertainties(df):
     sdf = pd.DataFrame(index=df.index, columns=pd.MultiIndex(levels=[[],[],[]], codes=[[],[],[]], names=['Element', 'Unit', 'Type']))
 
     for c, d in df.items():
-        if isinstance(d.iloc[0], uncertainties.core.AffineScalarFunc):
+        if isinstance(d.iloc[0], un.core.AffineScalarFunc):
             sdf.loc[:, (*c, 'mean')] = unp.nominal_values(d)
             sdf.loc[:, (*c, 'std')] = unp.std_devs(d)
         else:
