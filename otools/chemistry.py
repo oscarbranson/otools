@@ -109,52 +109,52 @@ def calc_M(molecule):
     
     return m
 
-def seawater(Sal=35., unit='mol/kg'):
-    """
-    Standard mean composition of seawater.
+# def seawater(Sal=35., unit='mol/kg'):
+#     """
+#     Standard mean composition of seawater.
 
-    From Dickson, Sabine and Christian (2007), Chapter 5, Table 3
+#     From Dickson, Sabine and Christian (2007), Chapter 5, Table 3
 
-    @book{dickson2007guide,
-          title={Guide to best practices for ocean CO2 measurements.},
-          author={Dickson, Andrew Gilmore and Sabine, Christopher L and Christian, James Robert},
-          year={2007},
-          publisher={North Pacific Marine Science Organization},
-          howpublished="https://www.nodc.noaa.gov/ocads/oceans/Handbook_2007.html",
-          ISBN="1-897176-07-4"}
+#     @book{dickson2007guide,
+#           title={Guide to best practices for ocean CO2 measurements.},
+#           author={Dickson, Andrew Gilmore and Sabine, Christopher L and Christian, James Robert},
+#           year={2007},
+#           publisher={North Pacific Marine Science Organization},
+#           howpublished="https://www.nodc.noaa.gov/ocads/oceans/Handbook_2007.html",
+#           ISBN="1-897176-07-4"}
         
 
-    Parameters
-    ----------
-    Sal : float
-        Salinity, default is 35
-    unit : str
-        Either 'mol/kg' or 'g/kg'.
+#     Parameters
+#     ----------
+#     Sal : float
+#         Salinity, default is 35
+#     unit : str
+#         Either 'mol/kg' or 'g/kg'.
 
-    Returns
-    -------
-    Seawater composition in chosen units at specified salinity : dict
-    """
+#     Returns
+#     -------
+#     Seawater composition in chosen units at specified salinity : dict
+#     """
     
-    sw = {"Cl": 0.54586,
-          "SO4": 0.02824,
-          "Br": 0.00084,
-          "F": 0.00007,
-          "Na": 0.46906,
-          "Mg": 0.05282,
-          "Ca": 0.01028,
-          "K": 0.01021,
-          "Sr": 0.00009,
-          "B": 0.00042}
+#     sw = {"Cl": 0.54586,
+#           "SO4": 0.02824,
+#           "Br": 0.00084,
+#           "F": 0.00007,
+#           "Na": 0.46906,
+#           "Mg": 0.05282,
+#           "Ca": 0.01028,
+#           "K": 0.01021,
+#           "Sr": 0.00009,
+#           "B": 0.00042}
 
-    for s in sw.keys():
-        sw[s] *= Sal / 35.
+#     for s in sw.keys():
+#         sw[s] *= Sal / 35.
     
-    if unit == 'g/kg':
-        for k, v in sw.items():
-            sw[k] = calc_M(k) * v
+#     if unit == 'g/kg':
+#         for k, v in sw.items():
+#             sw[k] = calc_M(k) * v
     
-    return sw
+#     return sw
 
 if __name__ == '__main__':
     print()
